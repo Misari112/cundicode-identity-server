@@ -66,8 +66,8 @@ namespace dis_identityserver
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Email},
-                    RedirectUris={ "https://localhost:3000/callback" },
-                    PostLogoutRedirectUris={ "https://localhost:3000/" }
+                    RedirectUris={ "https://cundicode-81412.web.app/callback" },
+                    PostLogoutRedirectUris={ "https://cundicode-81412.web.app/" }
 
                 }
             };  
