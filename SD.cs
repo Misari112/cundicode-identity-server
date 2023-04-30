@@ -47,6 +47,7 @@ namespace dis_identityserver
                new ApiScope(name: "ms_learn.read",   displayName: "(learn) Read your data."),
                 new ApiScope(name: "ms_learn.write",  displayName: "(learn) Write your data."),
                 new ApiScope(name: "ms_learn.delete", displayName: "(learn) Delete your data."),
+                new ApiScope(name: "roles", displayName: "User roles"),
             };
 
         public static IEnumerable<Client> Clients =>
@@ -59,6 +60,7 @@ namespace dis_identityserver
 
                     AllowedGrantTypes = GrantTypes.Code,
                     AllowedScopes = { 
+                        "roles",
                         "ms_general.read", 
                         "ms_practice.read", 
                         "ms_practice.write", 

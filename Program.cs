@@ -3,6 +3,7 @@ using dis_identityserver.Data;
 using dis_identityserver.IDbInitializer;
 using dis_identityserver.Models;
 using duende;
+using Duende.IdentityServer.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -41,7 +42,7 @@ builder.Services.AddIdentityServer(options =>
 .AddInMemoryApiScopes(SD.ApiScopes)
 .AddInMemoryClients(SD.Clients)
 .AddDeveloperSigningCredential().AddAspNetIdentity<ApplicationUser>();
-
+builder.Services.AddScoped<IProfileService, ProfileServiceWithRoles>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
