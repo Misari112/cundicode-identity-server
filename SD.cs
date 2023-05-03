@@ -7,6 +7,19 @@ namespace dis_identityserver
 {
     public static class SD
     {
+        private static readonly IConfiguration _config;
+        static SD()
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json");
+
+            _config = builder.Build();
+        }
+        public static string FUrlBase => _config["URL_APP:F_URL_BASE"];
+        public static string MsPracticeUrlBase => _config["URL_APP:MS_PRACTICE_URL_BASE"];
+        public static string ReactAppDisUrlBase => _config["URL_APP:REACT_APP_DIS_URL_BASE"];
+
         public const string Admin = "admin";
         public const string User = "user";
 
@@ -68,8 +81,8 @@ namespace dis_identityserver
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Email},
-                    RedirectUris={ "https://cundicode-81412.web.app/callback" },
-                    PostLogoutRedirectUris={ "https://cundicode-81412.web.app/" }
+                    RedirectUris={ FUrlBase + "/callback" },
+                    PostLogoutRedirectUris={ FUrlBase }
 
                 }
             };  
